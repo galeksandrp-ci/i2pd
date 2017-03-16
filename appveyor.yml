@@ -1,9 +1,6 @@
 version: 1.0.{build}
 pull_requests:
   do_not_increment_build_number: true
-branches:
-  only:
-  - openssl
 skip_tags: true
 os: Visual Studio 2015
 shallow_clone: true
