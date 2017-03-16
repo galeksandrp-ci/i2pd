@@ -164,7 +164,6 @@ build_script:
 
     echo "bitness=%bitness%; static=%static%; dll=%dll%; type=%type%; generator=%generator%; variant=%variant%; cmake=%cmake%; cmake_extra=%cmake_extra%"
 - if not defined msvc (
-    C:\msys64\usr\bin\bash -lc "sed 's&(WIN32 AND Boost_USE_STATIC_LIBS AND NOT CYGWIN) )&( WIN32 AND Boost_USE_STATIC_LIBS AND NOT CYGWIN AND NOT MSYS) )&' -i /usr/share/cmake-3.6.2/Modules/FindBoost.cmake"
     C:\msys64\usr\bin\bash -lc "export PATH=/mingw%bitness%/bin:/usr/bin && cd /c/projects/build && CC=/mingw%bitness%/bin/gcc.exe CXX=/mingw%bitness%/bin/g++.exe /usr/bin/cmake /c/projects/i2pd/build -G 'Unix Makefiles' -DWITH_AESNI=ON -DWITH_UPNP=ON %cmake% %cmake_extra% -DWITH_STATIC=%static% -DWITH_HARDENING=ON -DCMAKE_INSTALL_PREFIX:PATH=/c/projects/instdir -DCMAKE_FIND_ROOT_PATH=/mingw%bitness% && make install"
     && 7z a -tzip -mx9 -mmt C:\projects\i2pd\i2pd-mingw-win%bitness%-%type%.zip C:\projects\instdir\* C:\msys64\mingw%bitness%\bin\zlib1.dll C:\msys64\mingw%bitness%\bin\*eay32.dll
   )
