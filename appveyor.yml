@@ -36,14 +36,14 @@ environment:
   #   cmake: -DSSL_EAY=/mingw32/lib/libssl.a -DLIB_EAY=/mingw32/lib/libcrypto.a
   - type: shared
     variant: Release
-  - type: static
-    msvc: 12
-    x64: 1
-    variant: RelWithDebInfo
-  - type: static
-    msvc: 14
-    variant: RelWithDebInfo
-    cmake: -DWITH_PCH=ON
+  # - type: static
+  #   msvc: 12
+  #   x64: 1
+  #   variant: RelWithDebInfo
+  # - type: static
+  #   msvc: 14
+  #   variant: RelWithDebInfo
+  #   cmake: -DWITH_PCH=ON
   # - type: static
   #   msvc: 12
   # - type: shared
